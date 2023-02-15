@@ -3,6 +3,8 @@ package com.vsantos1.backend.model;
 import com.vsantos1.backend.dtos.ContactDTO;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "tb_contacts")
 public class Contact {
@@ -17,7 +19,10 @@ public class Contact {
 
     private String message;
 
-    public Contact(){}
+    private Date createdAt;
+
+    public Contact() {
+    }
 
 
     public Long getId() {
@@ -50,5 +55,13 @@ public class Contact {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

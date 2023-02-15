@@ -7,6 +7,7 @@ import com.vsantos1.backend.repositories.ContactRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +35,9 @@ public class ContactService {
     }
     public Contact execute(ContactDTO contactDTO) {
         Contact contact = new Contact();
+
         mapper.mapperBean().map(contactDTO, contact);
+        contact.setCreatedAt(new Date());
         return contactRepository.save(contact);
     }
 
